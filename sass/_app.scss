@@ -4,7 +4,7 @@
 .header {
     display: flex;
     justify-content: flex-end;
-    align-items: right;
+    // align-items: right;
     background-color: var.$navy;
     height: 100px;
     width: 400px;
@@ -33,7 +33,6 @@
         }
     }
 }
-
 
 .container {
     display: flex;
@@ -85,4 +84,3 @@
     width: 400px;
     background-color: var.$brown;
 }
-
