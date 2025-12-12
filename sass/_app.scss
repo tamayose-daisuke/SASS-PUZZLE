@@ -1,0 +1,88 @@
+@use 'variable' as var;
+@use 'mixin' as mix;
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: right;
+    background-color: var.$navy;
+    height: 100px;
+    width: 400px;
+
+    &__box {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        height: 60px;
+        width: 140px;
+        background-color: var.$white;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin:20px;
+        
+        &__list {
+            list-style: none;
+            height: 40px;
+            width: 40px;
+                @each $color in var.$buttonColor {
+                    $i: index(var.$buttonColor, $color);
+                    &:nth-child(#{$i}) {
+                    @include mix.colors($color);
+                    }
+                }
+        }
+    }
+}
+
+
+.container {
+    display: flex;
+    margin: auto;
+}
+
+.sidebar {
+    height: 250px;
+    width: 150px;
+    background-color: var.$green;
+}
+
+.main {
+    height: 250px;
+    width: 250px;
+    background-color: var.$red;
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+        margin-left: 40px;
+
+        &__list {
+            border: 5px solid var.$white;
+            width:140px;
+            height: 40px;
+            list-style: none;
+            box-sizing: border-box;
+            @each $color in var.$buttonColor {
+                $i: index(var.$buttonColor, $color);
+                &:nth-child(#{$i}) {
+                @include mix.colors($color);
+                }
+
+                &:nth-child(2) {
+                    margin-top: 10px;
+                }
+
+                &:nth-child(3) {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+.footer {
+    height: 100px;
+    width: 400px;
+    background-color: var.$brown;
+}
+
